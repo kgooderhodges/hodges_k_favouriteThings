@@ -2,7 +2,7 @@
 
     $db_dsn = array(
         'host' => 'localhost',
-        'dbname' => 'idp', //! database name here
+        'dbname' => 'khodges',
         'charset' => 'utf8',
     );
     
@@ -20,6 +20,6 @@
         // var_dump($pdo);
         // echo "you're in! enjoy the show";
     } catch (PDOException $exception) {
-        echo "Connection error: " . $exception->getMessage();
+        echo 'Connection error: ' . $exception->getMessage();
         exit();
     }

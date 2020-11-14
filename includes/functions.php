@@ -1,19 +1,29 @@
 <?php
-    // include the file we just wrote - connect
-    include("connect.php"); // like a JS import statement
-
-    $query = "SELECT * FROM dip_profdata"; //! table name here
-
-    $runQuery = $pdo->query($query);
-
-    //put results in the array
     $result = array();
 
-    while($row = $runQuery->fetchALL(PDO::FETCH_ASSOC)) {
-        // put results in square brackets, and then into a row
-        $result[] = $row;
+    function getAllUsers($conn) {
+        $query = "SELECT * FROM fav_things";
+
+        $runQuery = $conn->query($query);
+
+        while($row = $runQuery->fetchAll(PDO::FETCH_ASSOC)) {
+            $result[] = $row;
+
+            //return $result;
+            echo(json_encode($result));
+        }
     }
 
-    //return $result;
-    // var_dump($result);
-    echo(json_encode($result));
+    // get specific user
+    function getSingleUser($conn, $id) {
+        $query = "SELECT * FROM fav_things WHERE id=" . $id . "";
+
+        $runQuery = $conn->query($query);
+
+        while($row = $runQuery->fetchAll(PDO::FETCH_ASSOC)) {
+            $result[] = $row;
+
+            //return $result;
+            echo(json_encode($result));
+        }
+    }
