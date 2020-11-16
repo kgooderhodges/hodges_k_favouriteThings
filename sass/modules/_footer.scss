@@ -1,8 +1,10 @@
 footer {
+    font-family: $mainFont;
     position: fixed;
     bottom: 0;
-    background-color: black;
+    background: transparent;
     width: 100%;
+    height: 3vh;
     text-align: center;
-    color: $accentColor;
+    color: #ffaf20;
 }
