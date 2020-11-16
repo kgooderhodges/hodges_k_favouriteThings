@@ -3,25 +3,26 @@ import { fetchData, postData } from "./modules/DataMiner.js";
 
 (() => {
     // stub * just a place for non-component-specific stuff
-    // console.log('loaded');
+    console.log('loaded');
     
     function popErrorBox(message) {
         alert("Mistakes were made.");
     }
 
-    function handleDataSet(data) {
-        // populate a lightbox with this data and then open it
-        let lightbox = document.querySelector(".lightbox");
-        }
+    function loadInfo(data) {
+        let descTitle = document.querySelector('.info h2'),
+            description = document.querySelector('.desc');
+
+        descTitle.textContent = data[0].Name;
+        description.textContent = data[0].Description;
+        // console.log(data);
+    }
     
     function retrieveProjectInfo(event) {
-        // test for an ID
-        // console.log(event.target.id);
-        // check for id, and if there isn't one don't try the fetch call. It'll break (the PHP will choke)
-        if (!event.target.id) { return }
+        // if (!event.target.id) { return }
         
-        fetchData(`./includes/index.php?id=${event.target.id}`).then(data => console.log(data)).catch(err => { console.log(err); popErrorBox(err); });
-        debugger;
+        fetchData(`./includes/index.php?id=${event.target.id}`).then(data => loadInfo(data)).catch(err => { console.log(err); popErrorBox(err); });
+        // debugger;
     }
 
     function renderPortfolioThumbnails(thumbs) {
@@ -32,8 +33,8 @@ import { fetchData, postData } from "./modules/DataMiner.js";
             let currentUser = userTemplate.cloneNode(true),
                 currentUserText = currentUser.querySelector('.user').children;
     
-            currentUserText[1].src = `images/${thumbs[user].Image}`;
-            currentUserText[1].id = thumbs[user].id;
+            currentUserText[0].src = `images/${thumbs[user].Image}`;
+            currentUserText[0].id = thumbs[user].id;
             // add this new user to the view
 
             userSection.appendChild(currentUser);
@@ -46,8 +47,7 @@ import { fetchData, postData } from "./modules/DataMiner.js";
 
     // that would make it really flexible and able to handle all kinds of requests and we could pass in a callback depending on what we want to do with our data
 
-    // but then we'd be on our way to rewriting the Axios API (you should research it)
+    // but then we'd be on our way to rewriting the Axios API (you should research it) 
     fetchData("./includes/index.php").then(data => renderPortfolioThumbnails(data)).catch(err => { console.log(err); popErrorBox(err); });
-
-    // fetchData("./includes/index.php").then(data => handleDataSet(data)).catch(err => { console.log(err); popErrorBox(err); });
+    console.log("bottom");
 })();

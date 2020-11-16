@@ -2,7 +2,7 @@
 
     $db_dsn = array(
         'host' => 'localhost',
-        'dbname' => 'khodges',
+        'dbname' => 'db_khodges',
         'charset' => 'utf8',
     );
     
