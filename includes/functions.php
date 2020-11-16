@@ -2,7 +2,7 @@
     $result = array();
 
     function getAllUsers($conn) {
-        $query = "SELECT * FROM fav_things";
+        $query = "SELECT * FROM tbl_fav_things";
 
         $runQuery = $conn->query($query);
 
@@ -16,7 +16,7 @@
 
     // get specific user
     function getSingleUser($conn, $id) {
-        $query = "SELECT * FROM fav_things WHERE id=" . $id . "";
+        $query = "SELECT * FROM tbl_fav_things WHERE id=" . $id . "";
 
         $runQuery = $conn->query($query);
 

@@ -1,14 +1,16 @@
 .user-section {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    padding: 20px 0 0;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: $gap;
 }
 
 .user {
-    display: grid;
-    padding: 20px 0 0;
-    max-width: 400px;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: $gap;
+    margin: 0;
+    display: flex;
+    position: relative;
+    font-family: $mainFont;
+    
 
     h1 {
         display: none;
@@ -18,4 +20,33 @@
         width: 100%;
         
     }
+}
+
+.info {
+    display: flex;
+    grid-row: 2;
+    font-family: $mainFont;
+    
+    h2, .desc {
+        display: inline-block;
+        color: antiquewhite;
+    }
+    
+    h2 {
+        float: right;
+        padding: 0;
+        margin: 0;
+        left: 20px;
+        display: inline;
+        float:left;
+        margin:10px;
+        font-size: 20px;
+    }
+                
+    .desc {
+        text-align: left;
+        padding: 10px;
+        margin: 0 auto;
+    }
+
 }

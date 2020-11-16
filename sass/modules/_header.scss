@@ -2,18 +2,22 @@ header {
     @include flexCenter(row);
     // background: transparent;
     color: $textColor;
+
+    position: fixed;
+    width: 100%;
+    z-index: 3;
     
     .hidden {
         @include hidden();
     }
 }
 
-.mainNav {
+.header {
     display: flex;
     justify-content: space-around;
     align-items: center;
     min-height: 10vh;
-    background-color: #f8d188;
+    background-color: #ffaf20;
     font-family: $mainFont;
     
     .logo {
@@ -21,36 +25,6 @@ header {
         text-transform: uppercase;
         letter-spacing: 5px;
         font-size: 20px;
-    }
-
-    .navLinks {
-        display: flex;
-        justify-content: space-between;
-        width: 30%;
-        
-        a {
-            color: $accentColor;
-            text-decoration: none;
-            letter-spacing: 3px;
-            font-weight: bold;
-            font-size: $mainFontSize;
-        }
-
-        li {
-            list-style: none;
-        }
-    }
-    
-    .burger {
-        display: none;
-        cursor: pointer;
-        color: $accentColor;
-    
-        div{
-            width: 25px;
-            height: 3px;
-            background-color: $accentColor;
-            margin: 5px;
-        }
+        justify-content: start;
     }
 }
